@@ -11,6 +11,18 @@ In this project you will build such a pipeline.
 - GitHub repo: https://github.com/diogohs/nd0821-c2-build-model-workflow-starter/
 - Weights & Biases: https://wandb.ai/diogohs/nyc_airbnb
 
+## Clean up Conda environments
+
+List of environments:
+```bash
+> conda info --envs | grep mlflow | cut -f1 -d" "
+```
+
+Remove ALL the environments with a name starting with `mlflow`:
+```bash
+> for e in $(conda info --envs | grep mlflow | cut -f1 -d" "); do conda uninstall --name $e --all -y;done
+```
+
 ## Table of contents
 
 - [Introduction](#build-an-ML-Pipeline-for-Short-Term-Rental-Prices-in-NYC)
