@@ -15,12 +15,12 @@ In this project you will build such a pipeline.
 
 List of environments:
 ```bash
-> conda info --envs | grep mlflow | cut -f1 -d" "
+conda info --envs | grep mlflow | cut -f1 -d" "
 ```
 
 Remove ALL the environments with a name starting with `mlflow`:
 ```bash
-> for e in $(conda info --envs | grep mlflow | cut -f1 -d" "); do conda uninstall --name $e --all -y;done
+for e in $(conda info --envs | grep mlflow | cut -f1 -d" "); do conda uninstall --name $e --all -y;done
 ```
 
 ## Table of contents
