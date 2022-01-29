@@ -44,6 +44,11 @@ def go(args):
     logger.info('Convert last_review to datetime')
     df['last_review'] = pd.to_datetime(df['last_review'])
     
+    # Drop rows in the dataset that are not in the proper geolocation
+    logger.info('Dropping rows in the dataset that are not in the proper geolocation')
+    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    df = df[idx].copy()
+    
     # Save the results to a CSV file
     logger.info('Saving results to CSV file')
     df.to_csv(args.output_artifact, index=False)
